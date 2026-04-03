@@ -2,17 +2,10 @@ import Image from "next/image";
 
 import { SectionBlock } from "@/components/home/SectionBlock";
 import { ShopButton } from "@/components/home/ShopButton";
+import { COLLECTIONS } from "@/lib/collections";
 
 const IMAGES = {
   hero: "/hero-section-image.webp",
-  collection:
-    "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=2400&q=85",
-  highJewellery:
-    "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=2400&q=85",
-  resort:
-    "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2400&q=85",
-  bridal:
-    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2400&q=85",
 } as const;
 
 const CAMPAIGN_VIDEO_SRC = "/campaign.mp4";
@@ -65,15 +58,17 @@ export function HomePage() {
 
       <div className="flex flex-col gap-2 md:gap-5">
         <SectionBlock
-          imageSrc={IMAGES.collection}
-          imageAlt="Models in the new collection"
-          title="SIGNATURE"
+          imageSrc={COLLECTIONS.signature.imageSrc}
+          imageAlt={COLLECTIONS.signature.imageAlt}
+          title={COLLECTIONS.signature.navLabel}
+          shopHref={COLLECTIONS.signature.path}
+          priority
         />
         <SectionBlock
-          imageSrc={IMAGES.highJewellery}
-          imageAlt="High jewellery necklace"
-          title="CLASSIC"
-          // subtitle="Explore the collection"
+          imageSrc={COLLECTIONS.classic.imageSrc}
+          imageAlt={COLLECTIONS.classic.imageAlt}
+          title={COLLECTIONS.classic.navLabel}
+          shopHref={COLLECTIONS.classic.path}
         />
 
         <section className="mx-auto w-full max-w-8xl px-3 md:px-6">
@@ -89,7 +84,7 @@ export function HomePage() {
             />
           </div>
           <div className="flex flex-col items-center gap-3 py-9 text-center md:py-10">
-            <h2 className="text-[0.7rem] text-black font-normal uppercase tracking-[0.25em] md:text-xs">
+            <h2 className="text-[0.7rem] text-black font-bold uppercase tracking-[0.25em] md:text-xs">
               The campaign
             </h2>
             {/* <p className="text-[0.65rem] uppercase tracking-[0.18em] text-neutral-600">
@@ -100,14 +95,16 @@ export function HomePage() {
         </section>
 
         <SectionBlock
-          imageSrc={IMAGES.resort}
-          imageAlt="Resort wear"
-          title="HERITAGE"
+          imageSrc={COLLECTIONS.heritage.imageSrc}
+          imageAlt={COLLECTIONS.heritage.imageAlt}
+          title={COLLECTIONS.heritage.navLabel}
+          shopHref={COLLECTIONS.heritage.path}
         />
         <SectionBlock
-          imageSrc={IMAGES.bridal}
-          imageAlt="Bridal look"
-          title="FLORENCE"
+          imageSrc={COLLECTIONS.florance.imageSrc}
+          imageAlt={COLLECTIONS.florance.imageAlt}
+          title={COLLECTIONS.florance.navLabel}
+          shopHref={COLLECTIONS.florance.path}
         />
       </div>
     </>

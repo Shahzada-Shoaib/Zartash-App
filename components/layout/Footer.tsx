@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const SOCIAL_LINKS = [
   {
@@ -34,7 +35,7 @@ export function Footer() {
   return (
     <footer className="mt-auto border-t border-white/10 bg-black text-white">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-3 md:px-8 md:py-4">
-        <a
+        <Link
           href="/"
           className="block h-14 w-auto shrink-0 opacity-95 transition-opacity hover:opacity-100 md:h-16"
         >
@@ -46,7 +47,7 @@ export function Footer() {
             className="h-full w-auto object-contain object-center"
             sizes="(max-width: 768px) 200px, 240px"
           />
-        </a>
+        </Link>
 
         <nav
           aria-label="Social"

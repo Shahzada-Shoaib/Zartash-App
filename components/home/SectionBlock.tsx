@@ -10,12 +10,14 @@ export function SectionBlock({
   imageAlt,
   title,
   subtitle,
+  shopHref,
   priority,
 }: {
   imageSrc: string;
   imageAlt: string;
   title: string;
   subtitle?: string;
+  shopHref?: string;
   priority?: boolean;
 }) {
   return (
@@ -39,7 +41,7 @@ export function SectionBlock({
             {subtitle}
           </p>
         ) : null}
-        <ShopButton />
+        <ShopButton href={shopHref} />
       </div>
     </section>
   );

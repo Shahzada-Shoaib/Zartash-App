@@ -4,12 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const NAV_LINKS = [
-  "SIGNATURE",
-  "CLASSIC",
-  "HERITAGE",
-  "FLORANCE",
-] as const;
+import { NAV_ITEMS } from "@/lib/collections";
 
 const MD_MIN = "(min-width: 768px)";
 
@@ -73,10 +68,10 @@ export function Header() {
           aria-label="Main"
           className="hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] uppercase tracking-[0.2em] text-white md:flex md:gap-x-28 md:gap-y-1 md:text-[0.82rem]"
         >
-          {NAV_LINKS.map((label) => (
-            <a key={label} href="#" className="hover:opacity-60">
+          {NAV_ITEMS.map(({ label, href }) => (
+            <Link key={href} href={href} className="hover:opacity-60">
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -88,16 +83,16 @@ export function Header() {
             open ? "border-t" : "hidden border-0 p-0"
           }`}
         >
-          {NAV_LINKS.map((label) => (
-            <a
-              key={label}
-              href="#"
+          {NAV_ITEMS.map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
               className="py-3 text-center text-[0.72rem] uppercase tracking-[0.2em] text-white hover:opacity-60"
               tabIndex={open ? undefined : -1}
               onClick={() => setOpen(false)}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
