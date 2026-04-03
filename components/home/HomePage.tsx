@@ -1,5 +1,8 @@
 import Image from "next/image";
 
+import { SectionBlock } from "@/components/home/SectionBlock";
+import { ShopButton } from "@/components/home/ShopButton";
+
 const IMAGES = {
   hero: "/hero-section-image.webp",
   collection:
@@ -14,65 +17,11 @@ const IMAGES = {
 
 const CAMPAIGN_VIDEO_SRC = "/campaign.mp4";
 
-const sectionMediaShellClassName =
-  "relative aspect-[3/4] w-full max-h-[100dvh] md:aspect-[4/3]";
-
-function ShopButton({ label = "Shop now" }: { label?: string }) {
-  return (
-    <a
-      href="#"
-      className="inline-block bg-black px-10 py-3 text-[0.65rem] font-normal uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90"
-    >
-      {label}
-    </a>
-  );
-}
-
-function SectionBlock({
-  imageSrc,
-  imageAlt,
-  title,
-  subtitle,
-  priority,
-}: {
-  imageSrc: string;
-  imageAlt: string;
-  title: string;
-  subtitle?: string;
-  priority?: boolean;
-}) {
-  return (
-    <section className="mx-auto w-full max-w-8xl px-4 md:px-8">
-      <div className={sectionMediaShellClassName}>
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 1152px"
-          priority={priority}
-        />
-      </div>
-      <div className="flex flex-col items-center gap-2 py-14 text-center">
-        <h2 className="text-[0.75rem] text-black font-bold uppercase tracking-[0.25em] md:text-xs">
-          {title}
-        </h2>
-        {subtitle ? (
-          <p className="text-[0.65rem] uppercase tracking-[0.18em] text-neutral-600">
-            {subtitle}
-          </p>
-        ) : null}
-        <ShopButton />
-      </div>
-    </section>
-  );
-}
-
 export function HomePage() {
   return (
     <>
       <section className="relative w-full">
-        <div className="relative aspect-[3/4] w-full md:aspect-[21/9] md:max-h-[min(90vh,900px)] md:min-h-[420px]">
+        <div className="relative aspect-video w-full md:aspect-[21/9] md:max-h-[min(90vh,900px)] md:min-h-[420px]">
           <Image
             src={IMAGES.hero}
             alt="New collection campaign"
@@ -82,7 +31,7 @@ export function HomePage() {
             priority
           />
           <div className="absolute inset-0 bg-black/10" aria-hidden />
-          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-12 md:pb-16">
+          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-6 md:pb-12">
             <p className="text-center text-[0.65rem] font-normal uppercase tracking-[0.28em] text-white drop-shadow-sm md:text-xs">
               Shop the new collection
             </p>
@@ -90,14 +39,14 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-2xl px-6 py-16 text-center md:py-20">
+      <section className="mx-auto max-w-2xl px-5 py-10 text-center md:py-14">
         <p className="text-sm font-normal leading-relaxed text-neutral-700 md:text-[0.95rem]">
           We craft timeless pieces that celebrate heritage and modern elegance.
           Each collection tells a story of artistry, restraint, and quiet
           luxury. We craft timeless pieces that celebrate heritage and modern elegance.
           Each collection tells a story of artistry, restraint.
         </p>
-        <div className="mt-8 flex justify-center text-neutral-800" aria-hidden>
+        <div className="mt-5 flex justify-center text-neutral-800 md:mt-6" aria-hidden>
           <svg
             className="h-8 w-14"
             viewBox="0 0 56 20"
@@ -114,7 +63,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <div className="flex flex-col gap-4 md:gap-8">
+      <div className="flex flex-col gap-2 md:gap-5">
         <SectionBlock
           imageSrc={IMAGES.collection}
           imageAlt="Models in the new collection"
@@ -127,10 +76,8 @@ export function HomePage() {
           // subtitle="Explore the collection"
         />
 
-        <section className="mx-auto w-full max-w-8xl px-4 md:px-8">
-          <div
-            className={`${sectionMediaShellClassName} overflow-hidden bg-neutral-900`}
-          >
+        <section className="mx-auto w-full max-w-8xl px-3 md:px-6">
+          <div className="relative aspect-[3/2] w-full max-h-[100dvh] overflow-hidden bg-neutral-900 md:aspect-[4/3]">
             <video
               className="absolute inset-0 h-full w-full object-cover"
               src={CAMPAIGN_VIDEO_SRC}
@@ -141,7 +88,7 @@ export function HomePage() {
               aria-label="Campaign film"
             />
           </div>
-          <div className="flex flex-col items-center gap-4 py-14 text-center">
+          <div className="flex flex-col items-center gap-3 py-9 text-center md:py-10">
             <h2 className="text-[0.7rem] text-black font-normal uppercase tracking-[0.25em] md:text-xs">
               The campaign
             </h2>
