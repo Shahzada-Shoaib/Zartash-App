@@ -54,7 +54,7 @@ function SectionBlock({
         />
       </div>
       <div className="flex flex-col items-center gap-2 py-14 text-center">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.25em] md:text-xs">
+        <h2 className="text-[0.75rem] text-black font-bold uppercase tracking-[0.25em] md:text-xs">
           {title}
         </h2>
         {subtitle ? (
@@ -142,7 +142,7 @@ export function HomePage() {
             />
           </div>
           <div className="flex flex-col items-center gap-4 py-14 text-center">
-            <h2 className="text-[0.7rem] font-normal uppercase tracking-[0.25em] md:text-xs">
+            <h2 className="text-[0.7rem] text-black font-normal uppercase tracking-[0.25em] md:text-xs">
               The campaign
             </h2>
             {/* <p className="text-[0.65rem] uppercase tracking-[0.18em] text-neutral-600">
