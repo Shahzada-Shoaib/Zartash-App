@@ -5,10 +5,10 @@ import { ShopButton } from "@/components/home/ShopButton";
 import { COLLECTIONS } from "@/lib/collections";
 
 const IMAGES = {
-  hero: "/hero-section-image.webp",
+  hero: "/Zartash-Banner.avif",
 } as const;
 
-const CAMPAIGN_VIDEO_SRC = "/campaign.mp4";
+const CAMPAIGN_VIDEO_SRC = "/Zartash-home-page.mp4";
 
 export function HomePage() {
   return (
@@ -40,7 +40,7 @@ export function HomePage() {
           Each collection tells a story of artistry, restraint.
         </p>
         <div className="mt-5 flex justify-center text-neutral-800 md:mt-6" aria-hidden>
-          <svg
+          {/* <svg
             className="h-8 w-14"
             viewBox="0 0 56 20"
             fill="none"
@@ -52,7 +52,16 @@ export function HomePage() {
               strokeWidth="0.75"
               strokeLinecap="round"
             />
-          </svg>
+          </svg> */}
+          
+          <Image
+            src="/bird-homepage.png"
+            alt="Bird"
+            width={10}
+            height={10}
+            className=" h-full w-auto object-contain object-center"
+            sizes="(max-width: 768px) 200px, 24px"
+          />
         </div>
       </section>
 
