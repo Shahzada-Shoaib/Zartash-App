@@ -5,7 +5,7 @@ import { ShopButton } from "@/components/home/ShopButton";
 import { COLLECTIONS } from "@/lib/collections";
 
 const IMAGES = {
-  hero: "/Zartash-Banner.avif",
+  hero: "/Home-page-pics/hero-section-banner.avif",
 } as const;
 
 const CAMPAIGN_VIDEO_SRC = "/Zartash-home-page.mp4";
@@ -40,47 +40,34 @@ export function HomePage() {
           Each collection tells a story of artistry, restraint.
         </p>
         <div className="mt-5 flex justify-center text-neutral-800 md:mt-6" aria-hidden>
-          {/* <svg
-            className="h-8 w-14"
-            viewBox="0 0 56 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M4 10h48M28 4c0 4 0 8 4 10M28 4c0 4 0 8-4 10"
-              stroke="currentColor"
-              strokeWidth="0.75"
-              strokeLinecap="round"
-            />
-          </svg> */}
+      
           
           <Image
-            src="/bird-homepage.png"
+            src="/Home-page-pics/bird-homepage.png"
             alt="Bird"
             width={10}
             height={10}
             className=" h-full w-auto object-contain object-center"
-            sizes="(max-width: 768px) 200px, 24px"
+            sizes="(max-width: 768px) 20px, 24px"
           />
         </div>
       </section>
 
       <div className="flex flex-col gap-2 md:gap-5">
         <SectionBlock
+          imageSrc={COLLECTIONS.heritage.imageSrc}
+          imageAlt={COLLECTIONS.heritage.imageAlt}
+          title={COLLECTIONS.heritage.navLabel}
+          shopHref={COLLECTIONS.heritage.path}
+          priority
+        />
+        <SectionBlock
           imageSrc={COLLECTIONS.signature.imageSrc}
           imageAlt={COLLECTIONS.signature.imageAlt}
           title={COLLECTIONS.signature.navLabel}
           shopHref={COLLECTIONS.signature.path}
-          priority
         />
-        <SectionBlock
-          imageSrc={COLLECTIONS.classic.imageSrc}
-          imageAlt={COLLECTIONS.classic.imageAlt}
-          title={COLLECTIONS.classic.navLabel}
-          shopHref={COLLECTIONS.classic.path}
-        />
-
-        <section className="mx-auto w-full max-w-8xl px-3 md:px-6">
+         <section className="mx-auto w-full max-w-8xl px-3 md:px-6">
           <div className="relative aspect-[3/2] w-full max-h-[100dvh] overflow-hidden bg-neutral-900 md:aspect-[4/3]">
             <video
               className="absolute inset-0 h-full w-full object-cover"
@@ -102,19 +89,20 @@ export function HomePage() {
             <ShopButton />
           </div>
         </section>
-
-        <SectionBlock
-          imageSrc={COLLECTIONS.heritage.imageSrc}
-          imageAlt={COLLECTIONS.heritage.imageAlt}
-          title={COLLECTIONS.heritage.navLabel}
-          shopHref={COLLECTIONS.heritage.path}
-        />
         <SectionBlock
           imageSrc={COLLECTIONS.florance.imageSrc}
           imageAlt={COLLECTIONS.florance.imageAlt}
           title={COLLECTIONS.florance.navLabel}
           shopHref={COLLECTIONS.florance.path}
         />
+        <SectionBlock
+          imageSrc={COLLECTIONS.classic.imageSrc}
+          imageAlt={COLLECTIONS.classic.imageAlt}
+          title={COLLECTIONS.classic.navLabel}
+          shopHref={COLLECTIONS.classic.path}
+        />
+
+       
       </div>
     </>
   );

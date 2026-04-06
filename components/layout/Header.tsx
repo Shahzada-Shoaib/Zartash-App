@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="border-b border-white/10 bg-black">
-      <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-5 md:items-center md:gap-2 md:px-8 md:py-3">
+      <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-1 md:items-center md:gap-2 md:px-8 md:py-3">
         <div className="relative flex w-full items-center justify-center">
           <Link
             href="/"
