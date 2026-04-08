@@ -57,7 +57,7 @@ export function CollectionVideoImageSplit({
   return (
     <section className="mx-auto max-w-7xl border-t border-neutral-200/80 bg-white py-8 md:py-12">
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-4 md:grid-cols-2 md:gap-8 md:px-6">
-        <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-900 md:aspect-[4/3]">
+        <div className="relative aspect-[2/3] w-full overflow-hidden bg-neutral-900 md:aspect-[3/4]">
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
@@ -82,7 +82,7 @@ export function CollectionVideoImageSplit({
             )}
           </button>
         </div>
-        <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100 md:aspect-[4/3]">
+        <div className="relative aspect-[2/3] w-full overflow-hidden bg-neutral-100 md:aspect-[3/4]">
           <Image
             src={imageSrc}
             alt={imageAlt}

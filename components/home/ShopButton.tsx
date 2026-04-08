@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const className =
-  "inline-block bg-black px-10 py-3 text-[0.65rem] font-normal uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90";
+  "inline-block bg-black px-7 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90";
 
 export function ShopButton({
   label = "Shop now",

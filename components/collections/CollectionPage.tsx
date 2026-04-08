@@ -1,7 +1,11 @@
 import { CollectionCta } from "@/components/collection/CollectionCta";
+import { CollectionAccessoriesSection } from "@/components/collection/CollectionAccessoriesSection";
+import { CollectionDoubleBannerCtaSection } from "@/components/collection/CollectionDoubleBannerCtaSection";
 import { CollectionHero } from "@/components/collection/CollectionHero";
+import { CollectionImageImageSplit } from "@/components/collection/CollectionImageImageSplit";
 import { CollectionImageStrip } from "@/components/collection/CollectionImageStrip";
 import { CollectionProductFeature } from "@/components/collection/CollectionProductFeature";
+import { CollectionShowcaseSection } from "@/components/collection/CollectionShowcaseSection";
 import { CollectionTextSection } from "@/components/collection/CollectionTextSection";
 import { CollectionVideoImageSplit } from "@/components/collection/CollectionVideoImageSplit";
 import { CollectionWideBanner } from "@/components/collection/CollectionWideBanner";
@@ -68,15 +72,28 @@ export function CollectionPage({
         </div>
       </section>
       <MediaCarousel />
-      <CollectionProductFeature
-        imageSrc={c.spotlight.imageSrc}
-        imageAlt={c.spotlight.imageAlt}
-        title={c.spotlight.title}
-        body={c.spotlight.body}
+      <CollectionAccessoriesSection
+        imageSrc="/Home-page-pics/Zartash-Images-1.avif"
+        imageAlt="Accessories collection"
+        title="Accessories"
+        subtitle="THE CALCUTTA SLING"
+        ctaLabel="Explore"
+        ctaHref="#"
       />
-      <CollectionImageStrip images={c.stripImages} />
-      <CollectionWideBanner imageSrc={c.banner.src} imageAlt={c.banner.alt} />
-      <CollectionCta shopHref="#" />
+      <CollectionImageImageSplit />
+      <CollectionShowcaseSection />
+      <MediaCarousel />
+      <CollectionAccessoriesSection
+        imageSrc="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=2200&q=85"
+        imageAlt="Accessories featured drop"
+        title="Bags & Charms"
+        subtitle="THE LUMIERE EDIT"
+        ctaLabel="explore"
+        ctaHref="/signature"
+      /> 
+      <CollectionDoubleBannerCtaSection />
+
+
     </article>
   );
 }
