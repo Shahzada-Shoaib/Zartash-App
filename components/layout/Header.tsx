@@ -4,17 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { NAV_ITEMS } from "@/lib/collections";
+import { CollectionsNavDropdown } from "@/components/layout/CollectionsNavDropdown";
+import { HEADER_COLLECTION_DROPDOWN_ITEMS } from "@/lib/collections";
 
 const MD_MIN = "(min-width: 768px)";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [collectionsOpen, setCollectionsOpen] = useState(false);
+  const [mobileCollectionsOpen, setMobileCollectionsOpen] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia(MD_MIN);
     const onChange = () => {
-      if (mq.matches) setOpen(false);
+      if (mq.matches) {
+        setOpen(false);
+      } else {
+        setCollectionsOpen(false);
+        setMobileCollectionsOpen(false);
+      }
     };
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -66,13 +74,30 @@ export function Header() {
 
         <nav
           aria-label="Main"
-          className="hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] uppercase tracking-[0.2em] text-white md:flex md:gap-x-28 md:gap-y-1 md:text-[0.82rem]"
+          className="relative hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] uppercase tracking-[0.2em] text-white md:flex md:gap-x-24 md:gap-y-1 md:text-[0.82rem]"
         >
-          {NAV_ITEMS.map(({ label, href }) => (
-            <Link key={href} href={href} className="hover:opacity-60">
-              {label}
-            </Link>
-          ))}
+          <Link href="/new-arrivals" className="hover:opacity-60">
+            New Arrivals
+          </Link>
+          <button
+            type="button"
+            className="appearance-none bg-transparent p-0 text-inherit hover:opacity-60"
+            aria-expanded={collectionsOpen}
+            aria-controls="collections-dropdown"
+            onClick={() => setCollectionsOpen((prev) => !prev)}
+          >
+            COLLECTIONS
+          </button>
+          <Link href="/rtw" className="hover:opacity-60">
+            RTW
+          </Link>
+          <Link href="/about-us" className="hover:opacity-60">
+            About us
+          </Link>
+          <CollectionsNavDropdown
+            open={collectionsOpen}
+            onClose={() => setCollectionsOpen(false)}
+          />
         </nav>
 
         <nav
@@ -83,17 +108,59 @@ export function Header() {
             open ? "border-t" : "hidden border-0 p-0"
           }`}
         >
-          {NAV_ITEMS.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className="py-3 text-center text-[0.72rem] uppercase tracking-[0.2em] text-white hover:opacity-60"
+          <Link
+            href="/new-arrivals"
+            className="py-3 text-center text-[0.72rem] uppercase tracking-[0.2em] text-white hover:opacity-60"
+            tabIndex={open ? undefined : -1}
+            onClick={() => setOpen(false)}
+          >
+            New Arrivals
+          </Link>
+          <div className="flex flex-col gap-1 py-2">
+            <button
+              type="button"
+              className="py-2 text-center text-[0.72rem] uppercase tracking-[0.2em] text-white hover:opacity-60"
+              aria-expanded={mobileCollectionsOpen}
+              onClick={() => setMobileCollectionsOpen((prev) => !prev)}
               tabIndex={open ? undefined : -1}
-              onClick={() => setOpen(false)}
             >
-              {label}
-            </Link>
-          ))}
+              COLLECTIONS
+            </button>
+            {mobileCollectionsOpen ? (
+              <div className="flex flex-col border-t border-white/10">
+                {HEADER_COLLECTION_DROPDOWN_ITEMS.map((entry) => (
+                  <Link
+                    key={`mobile-${entry.slug}`}
+                    href={entry.href}
+                    className="py-2 text-center text-[0.68rem] uppercase tracking-[0.2em] text-white/85 hover:text-white"
+                    tabIndex={open ? undefined : -1}
+                    onClick={() => {
+                      setMobileCollectionsOpen(false);
+                      setOpen(false);
+                    }}
+                  >
+                    {entry.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          <Link
+            href="/rtw"
+            className="py-3 text-center text-[0.72rem] uppercase tracking-[0.2em] text-white hover:opacity-60"
+            tabIndex={open ? undefined : -1}
+            onClick={() => setOpen(false)}
+          >
+            RTW
+          </Link>
+          <Link
+            href="/about-us"
+            className="py-3 text-center text-[0.72rem] uppercase tracking-[0.2em] text-white hover:opacity-60"
+            tabIndex={open ? undefined : -1}
+            onClick={() => setOpen(false)}
+          >
+            About us
+          </Link>
         </nav>
       </div>
     </header>

@@ -124,7 +124,7 @@ export function MediaCarousel() {
       <div
         ref={scrollRef}
         onScroll={jumpIfLoopEnds}
-        className="-mx-3 flex gap-10 overflow-x-auto px-3 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:-mx-6 md:gap-14 md:px-6 [&::-webkit-scrollbar]:hidden"
+        className="flex gap-10 overflow-x-auto px-3 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-14 md:px-6 [&::-webkit-scrollbar]:hidden"
       >
         {TRIPLE_SLIDES.map((slide, index) => (
           <div

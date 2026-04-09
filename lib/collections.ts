@@ -218,7 +218,17 @@ export const COLLECTION_SLUGS: CollectionSlug[] = [
   "classic",
 ];
 
-export const NAV_ITEMS = COLLECTION_SLUGS.map((slug) => ({
-  label: COLLECTIONS[slug].navLabel,
-  href: COLLECTIONS[slug].path,
-}));
+const HEADER_COLLECTION_ORDER: readonly CollectionSlug[] = [
+  "heritage",
+  "signature",
+  "classic",
+  "florance",
+];
+
+export const HEADER_COLLECTION_DROPDOWN_ITEMS = HEADER_COLLECTION_ORDER.map(
+  (slug) => ({
+    slug,
+    label: COLLECTIONS[slug].documentTitle,
+    href: COLLECTIONS[slug].path,
+  }),
+);
