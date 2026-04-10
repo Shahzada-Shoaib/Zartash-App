@@ -29,7 +29,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="border-b border-white/10 bg-black">
+    <header className="relative border-b border-white/10 bg-black">
       <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-1 md:items-center md:gap-2 md:px-8 md:py-3">
         <div className="relative flex w-full items-center justify-center">
           <Link
@@ -74,7 +74,7 @@ export function Header() {
 
         <nav
           aria-label="Main"
-          className="relative hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] uppercase tracking-[0.2em] text-white md:flex md:gap-x-24 md:gap-y-1 md:text-[0.82rem]"
+          className="hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] uppercase tracking-[0.2em] text-white md:flex md:gap-x-24 md:gap-y-1 md:text-[0.82rem]"
         >
           <Link href="/new-arrivals" className="hover:opacity-60">
             New Arrivals
@@ -94,10 +94,6 @@ export function Header() {
           <Link href="/about-us" className="hover:opacity-60">
             About us
           </Link>
-          <CollectionsNavDropdown
-            open={collectionsOpen}
-            onClose={() => setCollectionsOpen(false)}
-          />
         </nav>
 
         <nav
@@ -163,6 +159,10 @@ export function Header() {
           </Link>
         </nav>
       </div>
+      <CollectionsNavDropdown
+        open={collectionsOpen}
+        onClose={() => setCollectionsOpen(false)}
+      />
     </header>
   );
 }

@@ -46,9 +46,9 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
     <div
       ref={rootRef}
       id="collections-dropdown"
-      className="absolute left-1/2 top-full z-30 mt-2 w-[min(95vw,72rem)] -translate-x-1/2 overflow-x-clip"
+      className="absolute left-0 top-full z-30 w-full overflow-x-clip"
     >
-      <div className="grid w-full grid-cols-[10rem_1fr] overflow-hidden border border-white/15 bg-black/95 shadow-[0_24px_48px_rgba(0,0,0,0.55)] backdrop-blur-sm lg:grid-cols-[12rem_1fr] xl:grid-cols-[14rem_1fr]">
+      <div className="py-14 grid w-full grid-cols-[10rem_1fr] overflow-hidden border border-white/15 bg-black/95 shadow-[0_24px_48px_rgba(0,0,0,0.55)] backdrop-blur-sm lg:grid-cols-[12rem_1fr] xl:grid-cols-[14rem_1fr]">
         <ul className="flex flex-col border-r border-white/15 py-2">
           <li>
             <Link
@@ -89,14 +89,14 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
         </ul>
 
         <div className="grid min-w-0 grid-cols-2 gap-3 p-3 lg:grid-cols-3 xl:grid-cols-4">
-          <Link href={heritage.path} className="group block min-w-0 max-w-[8.5rem]" onClick={onClose}>
+          <Link href={heritage.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
                 src={heritage.imageSrc}
                 alt={heritage.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                sizes="150px"
+                sizes="260px"
               />
             </div>
             <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
@@ -104,14 +104,14 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
             </p>
           </Link>
 
-          <Link href={signature.path} className="group block min-w-0 max-w-[8.5rem]" onClick={onClose}>
+          <Link href={signature.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
                 src={signature.imageSrc}
                 alt={signature.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                sizes="150px"
+                sizes="260px"
               />
             </div>
             <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
@@ -119,14 +119,14 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
             </p>
           </Link>
 
-          <Link href={classic.path} className="group block min-w-0 max-w-[8.5rem]" onClick={onClose}>
+          <Link href={classic.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
                 src={classic.imageSrc}
                 alt={classic.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                sizes="150px"
+                sizes="260px"
               />
             </div>
             <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
@@ -134,14 +134,14 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
             </p>
           </Link>
 
-          <Link href={florance.path} className="group block min-w-0 max-w-[8.5rem]" onClick={onClose}>
+          <Link href={florance.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
                 src={florance.imageSrc}
                 alt={florance.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                sizes="150px"
+                sizes="260px"
               />
             </div>
             <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
