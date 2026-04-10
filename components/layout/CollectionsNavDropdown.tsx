@@ -2,17 +2,27 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, type MouseEventHandler } from "react";
 
 import { COLLECTIONS } from "@/lib/collections";
 
 type CollectionsNavDropdownProps = {
   open: boolean;
   onClose: () => void;
+  onMouseEnter?: MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: MouseEventHandler<HTMLDivElement>;
+  triggerSelector?: string;
 };
 
-export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdownProps) {
+export function CollectionsNavDropdown({
+  open,
+  onClose,
+  onMouseEnter,
+  onMouseLeave,
+  triggerSelector,
+}: CollectionsNavDropdownProps) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const [animateIn, setAnimateIn] = useState(false);
   const heritage = COLLECTIONS.heritage;
   const signature = COLLECTIONS.signature;
   const classic = COLLECTIONS.classic;
@@ -23,6 +33,9 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
 
     const onPointerDown = (event: PointerEvent) => {
       if (!rootRef.current) return;
+      if (event.target instanceof Element && triggerSelector && event.target.closest(triggerSelector)) {
+        return;
+      }
       if (event.target instanceof Node && !rootRef.current.contains(event.target)) {
         onClose();
       }
@@ -38,7 +51,15 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, [open, onClose]);
+  }, [open, onClose, triggerSelector]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    setAnimateIn(false);
+    const frameId = requestAnimationFrame(() => setAnimateIn(true));
+    return () => cancelAnimationFrame(frameId);
+  }, [open]);
 
   if (!open) return null;
 
@@ -46,9 +67,15 @@ export function CollectionsNavDropdown({ open, onClose }: CollectionsNavDropdown
     <div
       ref={rootRef}
       id="collections-dropdown"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className="absolute left-0 top-full z-30 w-full overflow-x-clip"
     >
-      <div className="py-14 grid w-full grid-cols-[10rem_1fr] overflow-hidden border border-white/15 bg-black/95 shadow-[0_24px_48px_rgba(0,0,0,0.55)] backdrop-blur-sm lg:grid-cols-[12rem_1fr] xl:grid-cols-[14rem_1fr]">
+      <div
+        className={`grid w-full grid-cols-[10rem_1fr] overflow-hidden border border-white/15 bg-black/95 py-14 shadow-[0_24px_48px_rgba(0,0,0,0.55)] backdrop-blur-sm transition-all duration-200 ease-out lg:grid-cols-[12rem_1fr] xl:grid-cols-[14rem_1fr] ${
+          animateIn ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+        }`}
+      >
         <ul className="flex flex-col border-r border-white/15 py-2">
           <li>
             <Link

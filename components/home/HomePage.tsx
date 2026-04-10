@@ -108,9 +108,9 @@ export function HomePage() {
           shopHref={COLLECTIONS.florance.path}
         />
         <SectionBlock
-          imageSrc={COLLECTIONS.classic.imageSrc}
+          imageSrc="/Home-page-pics/classic-banner.png"
           mobileImageSrc="/mob-banners/mob-classic.png"
-          imageAlt={COLLECTIONS.classic.imageAlt}
+          imageAlt="Classic collection banner"
           title={COLLECTIONS.classic.navLabel}
           shopHref={COLLECTIONS.classic.path}
         />
