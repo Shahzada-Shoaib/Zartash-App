@@ -7,7 +7,7 @@ import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from 
 import { CollectionsNavDropdown } from "@/components/layout/CollectionsNavDropdown";
 import { HEADER_COLLECTION_DROPDOWN_ITEMS } from "@/lib/collections";
 
-const MD_MIN = "(min-width: 768px)";
+const DESKTOP_MIN = "(min-width: 1024px)";
 const COLLECTIONS_HOVER_CLOSE_DELAY_MS = 250;
 const COLLECTIONS_TRIGGER_SELECTOR = "#collections-trigger";
 
@@ -50,7 +50,7 @@ export function Header() {
   };
 
   useEffect(() => {
-    const mq = window.matchMedia(MD_MIN);
+    const mq = window.matchMedia(DESKTOP_MIN);
     const onChange = () => {
       if (mq.matches) {
         setOpen(false);
@@ -93,7 +93,7 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 flex-col items-center justify-center gap-1.5 md:hidden"
+            className="absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 flex-col items-center justify-center gap-1.5 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-main-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -119,7 +119,7 @@ export function Header() {
 
         <nav
           aria-label="Main"
-          className="hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] uppercase tracking-[0.2em] text-white md:flex md:gap-x-24 md:gap-y-1 md:text-[0.82rem]"
+          className="hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] uppercase tracking-[0.2em] text-white lg:flex lg:gap-x-24 lg:gap-y-1 lg:text-[0.82rem]"
         >
           <Link href="/new-arrivals" className="hover:opacity-60">
             New Arrivals
@@ -145,7 +145,7 @@ export function Header() {
         </nav>
 
       </div>
-      <div className={`fixed inset-0 z-40 md:hidden ${open ? "" : "pointer-events-none"}`}>
+      <div className={`fixed inset-0 z-40 lg:hidden ${open ? "" : "pointer-events-none"}`}>
         <div
           aria-hidden="true"
           className={`absolute inset-0 bg-black/55 transition-opacity duration-300 ${
