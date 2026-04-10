@@ -6,6 +6,13 @@ import { useEffect, useRef, useState, type MouseEventHandler } from "react";
 
 import { COLLECTIONS } from "@/lib/collections";
 
+const MOBILE_DROPDOWN_IMAGES = {
+  heritage: "/mob-banners/mob-heritage-banner.png",
+  signature: "/mob-banners/mob-signature.png",
+  classic: "/mob-banners/mob-classic.png",
+  florance: "/mob-banners/mob-florance.png",
+} as const;
+
 type CollectionsNavDropdownProps = {
   open: boolean;
   onClose: () => void;
@@ -119,14 +126,14 @@ export function CollectionsNavDropdown({
           <Link href={heritage.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
-                src={heritage.imageSrc}
+                src={MOBILE_DROPDOWN_IMAGES.heritage}
                 alt={heritage.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 sizes="260px"
               />
             </div>
-            <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
+            <p className="pt-2 text-center text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
               {heritage.documentTitle}
             </p>
           </Link>
@@ -134,14 +141,14 @@ export function CollectionsNavDropdown({
           <Link href={signature.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
-                src={signature.imageSrc}
+                src={MOBILE_DROPDOWN_IMAGES.signature}
                 alt={signature.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 sizes="260px"
               />
             </div>
-            <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
+            <p className="pt-2 text-center text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
               {signature.documentTitle}
             </p>
           </Link>
@@ -149,14 +156,14 @@ export function CollectionsNavDropdown({
           <Link href={classic.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
-                src={classic.imageSrc}
+                src={MOBILE_DROPDOWN_IMAGES.classic}
                 alt={classic.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 sizes="260px"
               />
             </div>
-            <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
+            <p className="pt-2 text-center text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
               {classic.documentTitle}
             </p>
           </Link>
@@ -164,14 +171,14 @@ export function CollectionsNavDropdown({
           <Link href={florance.path} className="group block min-w-0 max-w-[13rem]" onClick={onClose}>
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-white/5">
               <Image
-                src={florance.imageSrc}
+                src={MOBILE_DROPDOWN_IMAGES.florance}
                 alt={florance.imageAlt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 sizes="260px"
               />
             </div>
-            <p className="pt-2 text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
+            <p className="pt-2 text-center text-[0.66rem] uppercase tracking-[0.18em] text-white/80 transition-colors group-hover:text-white">
               {florance.documentTitle}
             </p>
           </Link>
